@@ -1,0 +1,134 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+  color: theme("colors.ink");
+  background-color: #ffffff;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(15, 76, 129, 0.25);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(15, 76, 129, 0.45);
+}
+
+/* ─── Glass card used by floating hero badges ───────────────────────────── */
+.glass-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  background: rgba(255, 255, 255, 0.84);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(15, 76, 129, 0.14), 0 2px 8px rgba(0, 0, 0, 0.06);
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #1a2238;
+  white-space: nowrap;
+}
+
+/* ─── Hero background & floating-card animations ────────────────────────── */
+@keyframes hero-float-1 {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-14px); }
+}
+@keyframes hero-float-2 {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(10px); }
+}
+@keyframes hero-float-3 {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-9px); }
+}
+@keyframes hero-float-4 {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(13px); }
+}
+@keyframes hero-orb-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  40% { transform: translate(30px, -18px) scale(1.06); }
+  70% { transform: translate(-15px, 12px) scale(0.97); }
+}
+@keyframes hero-orb-2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  40% { transform: translate(-22px, 14px) scale(1.04); }
+  70% { transform: translate(18px, -10px) scale(1.08); }
+}
+@keyframes hero-orb-3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(16px, -20px) scale(1.05); }
+}
+@keyframes hero-particle {
+  0% { transform: translateY(0) translateX(0); opacity: 0; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { transform: translateY(-90px) translateX(12px); opacity: 0; }
+}
+@keyframes hero-spin-ring {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes draw-path {
+  from { stroke-dashoffset: 400; }
+  to { stroke-dashoffset: 0; }
+}
+@keyframes sig-line {
+  from { width: 0; opacity: 0; }
+  to { width: 180px; opacity: 1; }
+}
+
+.float-card-1 { animation: hero-float-1 4.2s ease-in-out infinite; }
+.float-card-2 { animation: hero-float-2 5.1s ease-in-out infinite; }
+.float-card-3 { animation: hero-float-3 3.8s ease-in-out infinite; }
+.float-card-4 { animation: hero-float-4 4.7s ease-in-out infinite; }
+
+.hero-orb-1 { animation: hero-orb-1 12s ease-in-out infinite; }
+.hero-orb-2 { animation: hero-orb-2 15s ease-in-out infinite; }
+.hero-orb-3 { animation: hero-orb-3 9s ease-in-out infinite; }
+
+.hero-particle { animation: hero-particle 4s ease-out infinite; }
+
+.hero-spin-ring { animation: hero-spin-ring 50s linear infinite; }
+
+.hero-underline-path {
+  stroke-dasharray: 400;
+  stroke-dashoffset: 400;
+  animation: draw-path 1.4s cubic-bezier(0.22, 1, 0.36, 1) 0.6s forwards;
+}
+
+.about-sig-line {
+  width: 0;
+  opacity: 0;
+  animation: sig-line 1s ease-out 0.8s forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
