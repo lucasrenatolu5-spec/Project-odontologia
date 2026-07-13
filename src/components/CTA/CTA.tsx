@@ -15,8 +15,8 @@ export function CTA() {
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-white/4 blur-3xl translate-x-1/3 -translate-y-1/3" />
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full bg-white/4 blur-3xl -translate-x-1/3 translate-y-1/3" />
-        <div className="absolute top-1/2 right-16 w-40 h-40 -translate-y-1/2 rounded-full border-2 border-white/8" />
-        <div className="absolute top-1/2 right-12 w-52 h-52 -translate-y-1/2 rounded-full border border-white/5" />
+        <div className="hidden lg:block absolute top-1/2 right-16 w-40 h-40 -translate-y-1/2 rounded-full border-2 border-white/8" />
+        <div className="hidden lg:block absolute top-1/2 right-12 w-52 h-52 -translate-y-1/2 rounded-full border border-white/5" />
       </div>
 
       <motion.div
